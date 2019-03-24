@@ -1,0 +1,41 @@
+<div class="container Payments">
+  <h2 class="uppercase bold">{{titleMonth}}</h2>
+  <ul>
+    <li>
+      <h2 class="uppercase bold">Producto o servicio</h2>
+      <h2 class="uppercase bold">Costo</h2>
+      <h2 class="uppercase bold">Fecha de pago</h2>
+    </li>
+    <li *ngFor="let pay of paymentsList">
+      <p>{{pay.title}}</p>
+      <p>${{pay.pay.toLocaleString()}}</p>
+      <p>{{pay.date}}</p>
+    </li>
+    <li class="add"><button (click)="openModal()">Agregar Pago</button></li>
+  </ul>
+</div>
+<div class="fixedTotal">
+  <h2>Total: </h2>
+</div>
+
+<div id="firstModal" class="modal">
+    <div class="modal-content">
+      <h2 class="bold">Agregar Pago</h2>
+      <p>Completa el formulario para agregar un pago realizado.</p>
+      <form autocomplete="off">
+          <span>
+              <input type="text" id="title">
+              <label for="title">Producto o servicio pagado:</label>
+          </span>
+          <span>
+              <input type="text" id="pay">
+              <label for="pay">Total pagado:</label>
+            </span>
+            <span>
+              <input type="text" id="date">
+              <label for="date">Fecha:</label>
+          </span>
+          <button class="uppercase bold" (click)="addItem(title.value,pay.value)">Agregar</button>
+      </form>
+    </div>
+  </div>

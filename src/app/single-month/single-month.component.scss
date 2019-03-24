@@ -1,0 +1,45 @@
+@import '../../assets/scss/variables';
+.Payments {
+    margin-top: 50px;
+    & > h2 {
+        text-align: center;
+        font-size: 4rem;
+        color: $color4;
+        margin-bottom: 30px;
+    }
+    ul {
+        width: 100%;
+        li{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            margin-bottom: 20px;
+            h2 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1.8rem;
+            }
+            &.add {
+                button {
+                    grid-column: span 3;
+                    font-size: 2rem;
+                    padding: 8px;
+                    background-color: $color2;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+.fixedTotal {
+    background-color: $color5;
+    color: #FFF;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 50px;
+    bottom: 0;
+    font-size: 2rem;
+}

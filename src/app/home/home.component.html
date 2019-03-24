@@ -1,0 +1,9 @@
+<div class="container Months">
+  <ul>
+    <li *ngFor="let month of monthsList;let i=index" [routerLink]="['/'+month.month+'/'+month.$key]">
+      <h2 class="uppercase bold">{{month.month}}</h2>
+      <h3>Base: ${{month.base.toLocaleString()}}</h3>
+      <small>{{month.$key}}</small>
+    </li>
+  </ul>
+</div>

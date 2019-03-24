@@ -1,0 +1,53 @@
+<div class="Login">
+  <div class="Login-content" [ngClass]="{'log':activeForm === 'login'}">
+    <form class="Login-form">
+      <div *ngIf="activeForm == 'login'">
+        <h2 class="uppercase bold">Iniciar Sesión</h2>
+        <span>
+          <input type="text" (change)="viewInputs($event)">
+          <label for="">Usuario:</label>
+          <i class="material-icons">person</i>
+        </span>
+        <span>
+          <input type="text" (change)="viewInputs($event)">
+          <label for="">Contraseña:</label>
+          <i class="material-icons">lock</i>
+        </span>
+        <a href="javascript:;" class="forget">¿Olvidó su contraseña?</a>
+        <button class="bold uppercase">Iniciar Sesión</button>
+      </div>
+      <div *ngIf="activeForm != 'login'">
+          <h2 class="uppercase bold">Registrarme</h2>
+          <span>
+            <input type="text" (change)="viewInputs($event)">
+            <label for="">Usuario:</label>
+            <i class="material-icons">person</i>
+          </span>
+          <span>
+            <input type="text" (change)="viewInputs($event)">
+            <label for="">Correo electrónico</label>
+            <i class="material-icons">mail</i>
+          </span>
+          <span>
+            <input type="text" (change)="viewInputs($event)">
+            <label for="">Contraseña:</label>
+            <i class="material-icons">lock</i>
+          </span>
+          <span>
+            <input type="text" (change)="viewInputs($event)">
+            <label for="">Repetir contraseña:</label>
+            <i class="material-icons">lock</i>
+          </span>
+          <button class="bold uppercase">Registrarme</button>
+      </div>
+    </form>
+    <div class="Login-msg">
+      <h2 class="bold">¿Ya tienes una cuenta?</h2>
+      <button class="uppercase bold" (click)="activeForm = 'login'">Iniciar Sesión</button>
+    </div>
+    <div class="Signup-msg">
+      <h2 class="bold">¿No tienes una cuenta?</h2>
+      <button class="uppercase bold" (click)="activeForm = 'signup'">Registrarme</button>
+    </div>
+  </div>
+</div>
