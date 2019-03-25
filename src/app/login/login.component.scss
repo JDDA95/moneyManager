@@ -23,10 +23,6 @@
         }
     }
     &-form {
-        div {
-            display: grid;
-            align-content: center;
-        }
         display: grid;
         align-content: center;
         position: absolute;
@@ -38,6 +34,15 @@
         padding: 50px;
         left: 45%;
         transition: all .3s ease-in-out;
+        @media screen {
+            width: 100%;
+            left: 0 !important;
+            padding: 0 20px;
+        }
+        div {
+            display: grid;
+            align-content: center;
+        }
         h2 {
             color: $color5;
             font-size: 3rem;
@@ -70,6 +75,7 @@
                 transform: translateY(-50%);
                 left: 0;
                 transition: all .3s ease-in-out;
+                z-index: -1;
                 &.active {
                     top: 0;
                     font-size: 1.2rem;

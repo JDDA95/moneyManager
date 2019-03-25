@@ -15,6 +15,7 @@
         </span>
         <a href="javascript:;" class="forget">¿Olvidó su contraseña?</a>
         <button class="bold uppercase" (click)="signInBtn()">Iniciar Sesión</button>
+        <button class="uppercase bold" (click)="activeForm = 'signup'">Crear cuenta</button>
         <div class="social">
           <button (click)="auth.loginFacebook()">
             <img src="assets/img/facebook.png" alt="Login whit facebook">
@@ -37,6 +38,8 @@
             <i class="material-icons">lock</i>
           </span>
           <button class="bold uppercase" (click)="signupBtn()">Registrarme</button>
+      <button class="uppercase bold" (click)="activeForm = 'login'">Iniciar Sesión</button>
+
       </div>
     </form>
     <div class="Login-msg">
