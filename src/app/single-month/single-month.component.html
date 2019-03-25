@@ -10,32 +10,43 @@
       <p>{{pay.title}}</p>
       <p>${{pay.pay.toLocaleString()}}</p>
       <p>{{pay.date}}</p>
+      <button (click)="deletePay(pay.$key,pay.title)">
+          <i class="material-icons">delete</i>
+      </button>
     </li>
     <li class="add"><button (click)="openModal()">Agregar Pago</button></li>
   </ul>
 </div>
 <div class="fixedTotal">
-  <h2>Total: </h2>
+  <h2>Total: ${{totalPays.toLocaleString()}}</h2>
 </div>
-
 <div id="firstModal" class="modal">
     <div class="modal-content">
       <h2 class="bold">Agregar Pago</h2>
       <p>Completa el formulario para agregar un pago realizado.</p>
-      <form autocomplete="off">
-          <span>
-              <input type="text" id="title">
-              <label for="title">Producto o servicio pagado:</label>
-          </span>
-          <span>
-              <input type="text" id="pay">
-              <label for="pay">Total pagado:</label>
-            </span>
-            <span>
-              <input type="text" id="date">
-              <label for="date">Fecha:</label>
-          </span>
-          <button class="uppercase bold" (click)="addItem(title.value,pay.value)">Agregar</button>
+      <form [formGroup]="payments" (ngSubmit)="onSubmitDownload()">
+        <span>
+          <input (change)="viewInputs($event)" formControlName="title" type="text" id="title">
+          <label for="title">Producto o servicio pagado:</label>
+          <div *ngIf="submitted && payments.controls.title.errors" class="error">
+            <div *ngIf="payments.controls.title.errors.required">*No olvide agregar un título al pago</div>
+          </div>
+        </span>
+        <span>
+          <input (change)="viewInputs($event)" formControlName="pay" type="text" id="pay">
+          <label for="pay">Total pagado:</label>
+          <div *ngIf="submitted && payments.controls.pay.errors" class="error">
+            <div *ngIf="payments.controls.pay.errors.required">*No olvide agregar el costo del producto o servicio</div>
+          </div>
+        </span>
+        <span>
+          <input (change)="viewInputs($event)" formControlName="date" type="text" id="date">
+          <label for="date">Fecha:</label>
+          <div *ngIf="submitted && payments.controls.date.errors" class="error">
+            <div *ngIf="payments.controls.date.errors.required">*No olvide agregar la fecha del pago</div>
+          </div>
+        </span>
+        <button class="uppercase bold">Agregar</button>
       </form>
     </div>
   </div>

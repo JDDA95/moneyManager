@@ -9,6 +9,7 @@ import { Payments } from '../payments.model';
 export class ConexionService {
   monthsList: AngularFireList<any>;
   paymentsList: AngularFireList<any>;
+  selectedPayment: Payments = new Payments();
   constructor(private firebase:AngularFireDatabase){}
 
   getMonths(){
@@ -31,12 +32,14 @@ export class ConexionService {
   }
 
   insertPayment(pay: Payments){
-    this.monthsList.push({
+    this.paymentsList.push({
       date:pay.date,
       pay:pay.pay,
       title:pay.title,
     })
   }
 
-
+  deletePay($key) {
+    this.paymentsList.remove($key);
+  }
 }

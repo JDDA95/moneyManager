@@ -11,17 +11,26 @@
         width: 100%;
         li{
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(4,1fr);
             margin-bottom: 20px;
             h2 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
             p {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+            button {
+                padding: 8px;
+                background-color: #ff2525;
+                color: #FFF;
+                transition: all .3s ease-in-out;
+                &:hover {
+                    opacity: 0.5;
+                }
             }
             &.add {
                 button {
-                    grid-column: span 3;
+                    grid-column: span 4;
                     font-size: 2rem;
                     padding: 8px;
                     background-color: $color2;
