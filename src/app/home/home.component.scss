@@ -6,6 +6,9 @@
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-auto-rows: 200px;
+        @media screen {
+            grid-template-columns: repeat(1, 1fr);
+        }
         li {
             background-color: $color5;
             display: grid;

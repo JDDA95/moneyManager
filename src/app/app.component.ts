@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router'
 
 @Component({
@@ -6,8 +6,9 @@ import { Router, NavigationEnd } from '@angular/router'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'manager';
+  mobile:Boolean = false;
   headerHide:Boolean = false;
   constructor(private router:Router){
     this.router.events.subscribe(e => {
@@ -19,5 +20,22 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngOnInit(){
+    if(window.outerWidth <= 768){
+      this.mobile = true;
+    }else {
+      this.mobile = false;
+    }
+  }
+
+  openMenu(){
+    let menu:any= document.querySelector('nav')
+    menu.classList.add('active');
+  }
+  closeMenu(){
+    let menu:any= document.querySelector('nav')
+    menu.classList.remove('active');
   }
 }

@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header *ngIf="!headerHide">
+<header *ngIf="!headerHide && !mobile">
     <div class="container">
         <h1>
             LOGO
@@ -10,6 +10,25 @@
                 <li><a href="javascript:;"><i class="material-icons">attach_money</i>Ahorros</a></li>
                 <li><a href="javascript:;"><i class="material-icons">error</i>Pagos pendientes</a></li>
                 <li><a href="javascript:;"><i class="material-icons">show_chart</i>Estadisticas</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<header *ngIf="!headerHide && mobile">
+    <div class="container">
+        <h1>
+            LOGO
+        </h1>
+        <button (click)="openMenu()">
+            <i class="material-icons">menu</i>
+        </button>
+        <nav>
+            <button (click)="closeMenu()"><i class="material-icons">close</i></button>
+            <ul>
+                <li (click)="closeMenu()"><a href="javascript:;" [routerLink]="['/inicio']" [queryParams]="{}"><i class="material-icons">home</i>Inicio</a></li>
+                <li (click)="closeMenu()"><a href="javascript:;"><i class="material-icons">attach_money</i>Ahorros</a></li>
+                <li (click)="closeMenu()"><a href="javascript:;"><i class="material-icons">error</i>Pagos pendientes</a></li>
+                <li (click)="closeMenu()"><a href="javascript:;"><i class="material-icons">show_chart</i>Estadisticas</a></li>
             </ul>
         </nav>
     </div>

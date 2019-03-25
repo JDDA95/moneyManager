@@ -24,7 +24,7 @@
     <div class="modal-content">
       <h2 class="bold">Agregar Pago</h2>
       <p>Completa el formulario para agregar un pago realizado.</p>
-      <form [formGroup]="payments" (ngSubmit)="onSubmitDownload()">
+      <form [formGroup]="payments" (ngSubmit)="onSubmitPay()">
         <span>
           <input (change)="viewInputs($event)" formControlName="title" type="text" id="title">
           <label for="title">Producto o servicio pagado:</label>

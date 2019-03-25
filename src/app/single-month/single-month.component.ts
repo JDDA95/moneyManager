@@ -70,7 +70,7 @@ export class SingleMonthComponent implements OnInit {
     }
   }
 
-  onSubmitDownload() {
+  onSubmitPay() {
     this.submitted = true;
     if (this.payments.invalid) {
       return;

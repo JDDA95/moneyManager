@@ -13,11 +13,23 @@
             display: grid;
             grid-template-columns: repeat(4,1fr);
             margin-bottom: 20px;
+            @media screen {
+                grid-gap: 20px
+            }
             h2 {
                 font-size: 1.8rem;
+                @media screen {
+                    font-size: 1.1rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
             p {
                 font-size: 1.6rem;
+                @media screen {
+                    font-size: 1.2rem;
+                }
             }
             button {
                 padding: 8px;

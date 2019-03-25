@@ -12,23 +12,65 @@ header {
     background-color: $color1;
     color: #FFF;
     height: 80px;
+
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 100%;
+        @media screen {
+            button {
+                background-color: transparent;
+                i {
+                    color: #FFF;
+                    font-size: 3rem;
+                }
+            }
+        }
         nav {
             height: 100%;
             width: 50%;
+            @media screen {
+                background-color: $color1;
+                z-index: 1;
+                width: 100%;
+                position: fixed;
+                left: -105%;
+                top: 0;
+                height: 100vh;
+                transition: all .3s ease-in-out;
+                &.active {
+                    left: 0;
+                }
+                button {
+                    background-color: transparent;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    i {
+                        color: #FFF;
+                        font-size: 4rem;
+                    }
+                }
+            }
             ul {
                 display: flex;
                 align-items: center;
                 height: 100%;
                 justify-content: space-around;
+                @media screen {
+                    flex-direction: column;     
+                    justify-content: center;           
+                }
                 li {
                     font-size: 1.4rem;
                     height: 100%;
                     position: relative;
+                    @media screen {
+                        height: auto;
+                        margin: 20px;
+                        font-size: 2.5rem;
+                    }
                     &::after {
                         content: '';
                         background-color: $color2;
@@ -49,6 +91,9 @@ header {
                         i {
                             font-size: 1.6rem;
                             margin-right: 5px;
+                            @media screen {
+                                font-size: 2.5rem;
+                            }
                         }
                     }
                 }
@@ -119,7 +164,6 @@ z-index: 4;
           input {
             width: 100%;
             padding: 15px;
-            box-sizing: content-box;
             font-size: 1.4rem;
             &:focus + label {
               font-size: 1.2rem;
